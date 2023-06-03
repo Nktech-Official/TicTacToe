@@ -1,7 +1,12 @@
-import './App.css';
+import Board from './components/Board';
+import './styles.scss';
 
 function App() {
-  return <div>root</div>;
+  return (
+    <div className="app">
+      <Board />
+    </div>
+  );
 }
 
 export default App;
