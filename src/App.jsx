@@ -18,6 +18,10 @@ function App() {
 
   const gamingBoard = history[currentMove];
   const Winner = calculateWinner(gamingBoard.squares);
+  const noMovesLeft = gamingBoard.squares.every(
+    squareValue => squareValue !== null
+  );
+
   const handleSquareClick = position => {
     if (!gamingBoard.squares[position] && !Winner) {
       setHistory(currentHistory => {
@@ -58,8 +62,23 @@ function App() {
         handleSquareClick={handleSquareClick}
         squares={gamingBoard.squares}
       />
+      <button
+        type="button"
+        className={`btn-reset ${Winner || noMovesLeft ? 'active' : ''}`}
+        onClick={() => {
+          setCurrentMove(0);
+          setHistory(NEW_GAME);
+        }}
+      >
+        Start New Game
+      </button>
       <h2>Current Game History</h2>
-      <History history={history} onClick={moveTo} currentMove={currentMove} />
+      <History
+        history={history}
+        onClick={moveTo}
+        noMovesLeft={noMovesLeft}
+        currentMove={currentMove}
+      />
     </div>
   );
 }
