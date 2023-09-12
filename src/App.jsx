@@ -59,7 +59,11 @@ function App() {
       <h1>
         TIC <span className="text-green">TAC</span> TOE
       </h1>
-      <StatusMessage winner={Winner} gamingBoard={gamingBoard} />
+      <StatusMessage
+        winner={Winner}
+        gamingBoard={gamingBoard}
+        noMovesLeft={noMovesLeft}
+      />
 
       <Board
         handleSquareClick={handleSquareClick}
