@@ -4,6 +4,7 @@ import { calculateWinner } from './winner';
 import StatusMessage from './components/StatusMessage';
 import History from './components/History';
 import './styles.scss';
+import ToggleTheme from './components/ToggleTheme';
 
 const NEW_GAME = [
   {
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <div className="app">
+      <ToggleTheme />
       <h1>
         TIC <span className="text-green">TAC</span> TOE
       </h1>
