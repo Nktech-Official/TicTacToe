@@ -1,6 +1,7 @@
 $green: #12e177;
 $orange: #ffc72a;
 $blue: #4c43d4;
+$darkGray: #040d12;
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -8,6 +9,13 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
+  transition: background-color 0.3s linear;
+  &.dark-mode {
+    background-color: $darkGray;
+    .btn-reset {
+      background-color: $darkGray;
+    }
+  }
 }
 
 button {
@@ -25,8 +33,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-
+  position: relative;
 }
 
 .text-green {
@@ -40,7 +47,7 @@ button {
 .history-wrapper {
   width: 300px;
   min-height: 150px;
-  max-width:220px;
+  max-width: 220px;
   overflow-y: auto;
   text-align: center;
   margin-bottom: 20px;
@@ -63,7 +70,7 @@ button {
       }
 
       .btn-move {
-    	  color: #fff;
+        color: #fff;
         &.active {
           font-weight: bold;
           color: $green;
@@ -74,12 +81,12 @@ button {
 }
 
 .status-message {
-	margin-bottom: 30px;
-	font-size: 1.7rem;
-	font-weight: lighter;
-	span {
-	  font-weight: normal;
-	}
+  margin-bottom: 30px;
+  font-size: 1.7rem;
+  font-weight: lighter;
+  span {
+    font-weight: normal;
+  }
 }
 
 .btn-reset {
@@ -106,7 +113,6 @@ button {
       border-bottom: none;
     }
     .square {
-        
       width: 120px;
       height: 120px;
       border-right: 2px solid #fff;
@@ -118,19 +124,19 @@ button {
         border-right: none;
       }
       &.winning {
-	    animation: scaleText 1.4s infinite;
-	    @keyframes scaleText {
-	      0% {
-	        transform: 2.5rem;
-	      }
-	      50% {
-	        font-size: 3.5rem;
-	      }
-	      100% {
-	        font-size: 2.5rem;
-	      }
-	    }
-	  }
+        animation: scaleText 1.4s infinite;
+        @keyframes scaleText {
+          0% {
+            transform: 2.5rem;
+          }
+          50% {
+            font-size: 3.5rem;
+          }
+          100% {
+            font-size: 2.5rem;
+          }
+        }
+      }
     }
   }
 }
@@ -175,5 +181,51 @@ button {
       top: -110px;
       left: -110px;
     }
+  }
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  border: 1px solid $orange;
+  padding: 0.5rem;
+  line-height: 0;
+  border-radius: 15px;
+  &.toggle {
+    &::after {
+      right: 40px;
+    }
+    img {
+      opacity: 1 !important;
+      &:nth-of-type(2) {
+        opacity: 0 !important;
+      }
+    }
+  }
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: all 0.3s linear;
+    pointer-events: none;
+    &:first-of-type {
+      margin-right: 1rem;
+      opacity: 0;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid $orange;
+    left: auto;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
   }
 }
