@@ -117,6 +117,7 @@ This project is under the [MIT](./LICENSE) license.
 Thanks to everyone who has contributed towards this project
 
 <div>
+   <!-- trigger deploy !-->
     <a href="https://github.com/nktech-official/TicTacToe/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=nktech-official/TicTacToe" />
     </a>
